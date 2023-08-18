@@ -1,10 +1,25 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react'
+/* eslint-disable react/no-unknown-property */
+import { Canvas } from '@react-three/fiber';
+import { Environment, Center } from '@react-three/drei';
 
-const Canvas = () => {
+import Backdrop from './Backdrop';
+import CameraRig from './CameraRig';
+import Shirt from './Shirt';
+
+const CanvasModel = () => {
   return (
-    <div>Canvas</div>
+    <Canvas>
+      <ambientLight intensity={0.5}/>
+      <Environment preset='city'/>
+
+      <CameraRig>
+        {/* <Backdrop /> */}
+        <Center>
+          <Shirt />
+        </Center>
+      </CameraRig>
+    </Canvas>
   )
 }
 
-export default Canvas
+export default CanvasModel
